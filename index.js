@@ -18,11 +18,12 @@ function getComputerChoice ()  {
 
 };
 
-function roundPlay (){
-    // let playerInput = prompt('Choose one of the three: Rock, Paper, or Scissors');
-    // let playerInputString = String(playerInput);
-    // let lowerPlayerInput = playerInputString.toLowerCase();
-
+function playRound (){
+    let playerInput = window.prompt('Choose one of the three: Rock, Paper, or Scissors');
+    let lowerPlayerInput = playerInput.toLowerCase();
+    let compChoice = getComputerChoice();
+    
+    
     //Rock Player Selection 
 
     if (lowerPlayerInput === 'rock') {
@@ -66,7 +67,21 @@ function roundPlay (){
             return "DRAW YOU BOTH CHOSE SCISSORS!"
         }
     }
-    return "Your score: " + playerScore + " Computer score: " + computerScore;
+    
 };
 
 
+function game () {
+    while (1) {
+        console.log((playRound()));
+        console.log("Your score: " + playerScore + " Computer score: " + computerScore);
+        if (playerScore === 5){
+            return 'YOU WON AGAINST THE COMPUTER!';
+        }
+        else if (computerScore === 5){
+            return 'YOU LOST! THE COMPUTER HAS WON!';
+        }
+    }
+};
+
+game();
